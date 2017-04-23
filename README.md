@@ -2,7 +2,9 @@ Currency rates
 ==============
 Web application that display currency rates. 
 
-Load data from http://fixer.io/
+Sample is running [here](http://anokata.pythonanywhere.com/currency)
+
+Load data from [site](http://fixer.io/)
 
 Using flask as framework. 
 
