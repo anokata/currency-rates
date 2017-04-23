@@ -35,7 +35,7 @@ def calculate_query(query):
                                                 currency_from,
                                                 currency_to,
                                                 value)
-        print(query)
+        print(query) #TODO log
         return ("{}".format(value),
                 "{} {} = {} {}".format(value_from, currency_from, value, currency_to))
     except ParseError as exception:
