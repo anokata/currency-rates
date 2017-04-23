@@ -1,0 +1,11 @@
+Currency rates
+==============
+Web application that display currency rates. 
+
+Load data from http://fixer.io/
+
+
+requirements:
+* pymorphy2-dicts-ru
+* pymorphy2
+* pytest (if need testing)
