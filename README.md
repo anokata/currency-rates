@@ -27,7 +27,7 @@ Config for systemd:
     cp currency-rates.service /lib/systemd/system
     systemd start currency-rates
 
-Running:
+Develop running:
 
     make run
 

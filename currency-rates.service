@@ -7,4 +7,4 @@ Group=ksi_group
 User=ksi
 WorkingDirectory=/home/ksi/currency-rates
 ExecStart=/usr/local/bin/uwsgi --ini /home/ksi/currency-rates/currency-rates.ini
-#env PATH=/home/ksi/currency-rates/env/bin
+env PATH=/home/ksi/currency-rates/env/bin
