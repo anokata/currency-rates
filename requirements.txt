@@ -1,0 +1,8 @@
+pymorphy2==0.8
+pymorphy2-dicts==2.4.393442.3710985
+pymorphy2-dicts-ru==2.4.403921.4377886
+pytest==3.0.4
+uWSGI==2.0.15
+Werkzeug==0.11.15
+Flask==0.12
+Jinja2==2.9.5
