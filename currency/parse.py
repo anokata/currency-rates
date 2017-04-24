@@ -9,8 +9,8 @@ MORPH = pymorphy2.MorphAnalyzer()
 class ParseError(Exception):
     pass
 
-# Extracts from query string value and translate currency to codes
 def parse_value_and_currencies(query):
+    """ Extracts from query string value and translate currency to codes """
     words = normalize_words(query.split(" "))
     value_from, words = get_first_value(words)
     currency_from, words = get_from_currency(words)
@@ -20,6 +20,8 @@ def parse_value_and_currencies(query):
 
 @log
 def get_first_value(words):
+    """ Try parse first few words as number.
+        Also returns remainded words """
     try:
         value_from = float(words[0])
         return value_from, words[1:]

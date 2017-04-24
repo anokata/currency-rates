@@ -7,6 +7,7 @@ from .currency import load_currency_table, calculate_query
 # Main view resived query in post
 @app.route("/currency", methods=["GET", "POST"])
 def root():
+    """ Main app view """
     ans = ""
     descripton = ""
     if request.method == 'POST':

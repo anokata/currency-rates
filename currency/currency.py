@@ -8,9 +8,9 @@ PAIR_QUERY = "http://api.fixer.io/latest?symbols={0},{1}&base={0}"
 HISTORY_QUERY = "http://api.fixer.io/{}?base={}"
 
 
-# Loads table data with values and growth sing, real names in dict
-# also return current data as string
 def load_currency_table():
+    """ Loads table data with values and growth sing, real names in dict
+        also return current data as string """
     res = requests.get(MAIN_QUERY)
     data = res.json()
 
@@ -24,9 +24,9 @@ def load_currency_table():
 
     return table, date_format(date)
 
-# Parses query string to number and currency pair
-# and transfer from one to another
 def calculate_query(query):
+    """ Parses query string to number and currency pair
+        and transfer from one to another """
     try:
         value_from, currency_from, currency_to = parse_value_and_currencies(query)
         value = calc_currency_from_to(currency_from, currency_to, value_from)
@@ -35,14 +35,14 @@ def calculate_query(query):
                                                 currency_from,
                                                 currency_to,
                                                 value)
-        print(query) #TODO log
+        print(query) 
         return ("{}".format(value),
                 "{} {} = {} {}".format(value_from, currency_from, value, currency_to))
     except ParseError as exception:
         return "err", "Query error: " + str(exception)
 
-# Fills table with values and names and growth sign relative to previous value
 def fill_table(rates, history_rates):
+    """ Fills table with values and names and growth sign relative to previous value """
     table = dict()
     for name, value in rates.items():
         growth_symbol = get_growth_symbol(value - history_rates[name])
@@ -54,13 +54,13 @@ def fill_table(rates, history_rates):
             }
     return table
 
-# Translates specific amount of currency from one ot another base
 def calc_currency_from_to(currency_from, currency_to, amount):
+    """ Translates specific amount of currency from one ot another base """
     return amount * load_pair_rate(currency_from, currency_to)
 
-# Loads rate for one pair of currency in destination base
 @log
 def load_pair_rate(currency_from, currency_to):
+    """ Loads rate for one pair of currency in destination base """
     return requests.get(PAIR_QUERY.format(currency_from,
                                           currency_to)).json()["rates"][currency_to]
 

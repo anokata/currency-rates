@@ -11,6 +11,7 @@ class NumberParseError(Exception):
 
 @log
 def russian_number_to_int(words):
+    """ Converts number in words to real number """
     try:
         current_number = 0
         total = 0
@@ -36,6 +37,7 @@ def get_quantitive(word):
     return QUANTITIVES[word]
 
 def get_value(word):
+    """ Returns value for single word """
     numbers = {
         "один": 1,
         "два": 2,
